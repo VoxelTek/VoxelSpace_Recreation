@@ -6,7 +6,7 @@ fov = 90 #The FOV of the camera. This, because of mathematical constraints invol
 window_x = 0 #window_x and window_y are placeholder variables for what will in future be the window dimensions in pixels.
 window_y = 0
 
-z_axis = []
+z_axis = [] #This will be used to allow for drawing lines from the front of the screen to the back.
 
 aspect_ratio = (window_x / window_y) #The aspect ratio of the screen, calculated by dividing the horizontal resolution by the vertical resolution. This is redundant, and is never used.
 
