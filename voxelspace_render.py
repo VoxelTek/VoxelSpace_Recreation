@@ -20,12 +20,12 @@ def render_frame():
 
     z_axis = [] #Clears the Z buffer
 
-    for loop in range(window_y): #Creates the correct number of spaces within the Z buffer. This makes things easier later on.
+    for loop in range(window_x): #Creates the correct number of spaces within the Z buffer. This makes things easier later on.
         z_axis.append(0)
 
     for y in range(render_distance): #Runs for every horizontal line between the camera/player and the furthest point away from them which they can see.
         for x in range((x_base_distance / render_distance) * (y+1)): #Runs for every pixel that should be checked between the edges of each horizontal line.
-
+            get_point((pos[0] + (x - ((x_base_distance / render_distance) * (y+1) / 2))), (pos[2] + (y + 1)))
 
             pos[0] + (x - ((x_base_distance / render_distance) * (y+1) / 2)) #This will return the point that would be on the left side of the screen, relative to the camera/player position.
             pos[2] + (y + 1) #This returns the Y axis at which the line should be on, relative to the player position.
