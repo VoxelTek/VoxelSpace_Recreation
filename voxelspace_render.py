@@ -12,7 +12,9 @@ aspect_ratio = (window_x / window_y) #The aspect ratio of the screen, calculated
 
 pos = [0, 0, 0] #The player/camera position.
 
-x_base_distance = ((math.tan(fov / 2) * render_distance) * 2) #Calculates the length of the base of the virtual triangle that is constructed when getting pixels.
+camera_rotation = 0
+
+x_base_distance = ((math.tan(radians(fov / 2)) * render_distance) * 2) #Calculates the length of the base of the virtual triangle that is constructed when getting pixels.
 
 y_base_distance = (window_y / window_x) * x_base_distance #Uses a (hopefully) clever trick with the aspect ratio of the screen to possibly save some time and maths in order to calculate the same number as above, but for the vertical, "side view", triangle base length.
 
