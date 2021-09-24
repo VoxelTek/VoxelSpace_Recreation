@@ -28,13 +28,13 @@ def render_frame():
         z_axis.append(0)
 
     for y in range(render_distance): #Runs for every horizontal line between the camera/player and the furthest point away from them which they can see.
-        rotated_points[0][0] = (math.cos(math.radians(camera_rotation)) * (((x_base_distance / render_distance) * (y+1)) - (((x_base_distance / render_distance) * (y+1)) / 2))) - (math.sin(math.radians(camera_rotation)) * (y + 1))
-        rotated_points[0][1] = (math.sin(math.radians(camera_rotation)) * (((x_base_distance / render_distance) * (y+1)) - (((x_base_distance / render_distance) * (y+1)) / 2))) + (math.cos(math.radians(camera_rotation)) * (y + 1))
+        rotated_points[0][0] = (math.cos(math.radians(camera_rotation)) * (((x_base_distance / render_distance) * (y + 1)) - (((x_base_distance / render_distance) * (y + 1)) / 2))) - (math.sin(math.radians(camera_rotation)) * (y + 1))
+        rotated_points[0][1] = (math.sin(math.radians(camera_rotation)) * (((x_base_distance / render_distance) * (y + 1)) - (((x_base_distance / render_distance) * (y + 1)) / 2))) + (math.cos(math.radians(camera_rotation)) * (y + 1))
 
         rotated_points[1][0] = (math.cos(math.radians(camera_rotation)) * (((x_base_distance / render_distance) * (y+1)) / 2)) - (math.sin(math.radians(camera_rotation)) * (y + 1))
         rotated_points[1][0] = (math.sin(math.radians(camera_rotation)) * (((x_base_distance / render_distance) * (y+1)) / 2)) + (math.cos(math.radians(camera_rotation)) * (y + 1))
         for x in range((x_base_distance / render_distance) * (y+1)): #Runs for every pixel that should be checked between the edges of each horizontal line.
-            get_point((pos[0] + (x - ((x_base_distance / render_distance) * (y+1) / 2))), (pos[2] + (y + 1)))
+            get_point((pos[0] + (rotated_points[0][0] + ((rotated_points[0][0] - rotated_points[1][0]) * x))), (pos[2] + (rotated_points[0][1] + ((rotated_points[0][1] - rotated_points[1][1]) * x))
 
             pos[0] + (x - ((x_base_distance / render_distance) * (y+1) / 2)) #This will return the point that would be on the left side of the screen, relative to the camera/player position.
             pos[2] + (y + 1) #This returns the Y axis at which the line should be on, relative to the player position.
