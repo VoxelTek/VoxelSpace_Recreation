@@ -24,7 +24,7 @@ def render_frame():
 
     z_axis = [] #Clears the Z buffer
 
-    for loop in range(window_x): #Creates the correct number of spaces within the Z buffer. This makes things easier later on.
+    for loop in range(window_x): #Creates the correct number of spaces within the Z buffer. This makes things easier later on, as you can't directly add to or change a position in a list that isn't already occupied.
         z_axis.append(0)
 
     for y in range(render_distance): #Runs for every horizontal line between the camera/player and the furthest point away from them which they can see.
