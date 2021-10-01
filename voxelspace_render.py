@@ -45,13 +45,8 @@ def render_frame():
 
 
 
-# OBJECTIVES FOR TOMORROW
+# OBJECTIVES
 #
-# - Either:
-# - - Have the line counting start at the back, instead of starting at the front. This would be easier and less complex to program for, but may be an inefficient method later on. This method is less flexible, but easier to understand and program for.
-# - OR
-# - - Implement a Z-axis of sorts. This method, although it would be complicated, has the possibility to be more efficient than the above method. It is also more flexible.
-#
-# - Implement view turning.
-#
+# - Complete Z-buffer implementation
+# - Ensure appropriate behavior based on screen resolution, so line rendering can be ensured to cover the whole screen.
 # - Test the goddamn thing
