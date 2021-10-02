@@ -44,14 +44,11 @@ def render_frame():
     try:
         aspect_ratio = (window_x / window_y)
     except ZeroDivisionError:
-        pass
+        print("An error has occurred, and a window has not been created. Make sure that you did not close any windows that may have appeared, as that may be the cause of the issue. Otherwise, report this as a bug.")
 
     x_base_distance = ((math.tan(radians(fov / 2)) * render_distance) * 2) #Calculates the length of the base of the virtual triangle that is constructed when getting pixels.
 
-    try:
-        y_base_distance = (window_y / window_x) * x_base_distance #Uses a (hopefully) clever trick with the aspect ratio of the screen to possibly save some time and maths in order to calculate the same number as above, but for the vertical, "side view", triangle base length.
-    except ZeroDivisionError:
-        pass
+    y_base_distance = (window_y / window_x) * x_base_distance #Uses a (hopefully) clever trick with the aspect ratio of the screen to possibly save some time and maths in order to calculate the same number as above, but for the vertical, "side view", triangle base length.
 
 
     rotated_points = [(0, 0), (0, 0)]
