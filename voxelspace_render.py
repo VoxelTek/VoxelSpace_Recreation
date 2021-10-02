@@ -1,4 +1,5 @@
 import math
+import turtle
 
 render_distance = 100
 fov = 90 #The FOV of the camera. This, because of mathematical constraints involving triangles, can never be 180 or larger. Also, combinding a large FOV with a large render distance may result in unexpected behaviour, or graphical anomalies. This is because the calculated base distance of the horizontal virtual triangle may exceed the window's vertical pixel count, forcing multiple lines into the space of a single one. Therefore, resulting in unpredictable results.
@@ -18,7 +19,25 @@ x_base_distance = ((math.tan(radians(fov / 2)) * render_distance) * 2) #Calculat
 
 y_base_distance = (window_y / window_x) * x_base_distance #Uses a (hopefully) clever trick with the aspect ratio of the screen to possibly save some time and maths in order to calculate the same number as above, but for the vertical, "side view", triangle base length.
 
+background_colour = [0, 0, 0] #Due to the way the turtle library works, the background colour is split up into 3 values of red, green, and blue, each ranging from 0 to 1.
+
+def window_init():
+    screen = turtle.Screen()
+
+    linedraw = turtle.Turtle()
+
+    linedraw.hideturtle()
+
+
 def render_frame():
+    window_x = screen.window_width()
+    window_y = screen.window_height()
+
+    aspect_ratio = (window_x / window_y)
+
+    x_base_distance = ((math.tan(radians(fov / 2)) * render_distance) * 2) #Calculates the length of the base of the virtual triangle that is constructed when getting pixels.
+
+    y_base_distance = (window_y / window_x) * x_base_distance #Uses a (hopefully) clever trick with the aspect ratio of the screen to possibly save some time and maths in order to calculate the same number as above, but for the vertical, "side view", triangle base length.
 
     rotated_points = [(0, 0), (0, 0)]
 
