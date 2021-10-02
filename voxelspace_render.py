@@ -9,7 +9,10 @@ window_y = 0
 
 z_axis = [] #This will be used to allow for drawing lines from the front of the screen to the back.
 
-aspect_ratio = (window_x / window_y) #The aspect ratio of the screen, calculated by dividing the horizontal resolution by the vertical resolution. This is redundant, and is never used.
+try:
+    aspect_ratio = (window_x / window_y) #The aspect ratio of the screen, calculated by dividing the horizontal resolution by the vertical resolution. This is redundant, and is never used.
+except ZeroDivisionError:
+    pass
 
 pos = [0, 0, 0] #The player/camera position.
 
@@ -17,7 +20,10 @@ camera_rotation = 0
 
 x_base_distance = ((math.tan(math.radians(fov / 2)) * render_distance) * 2) #Calculates the length of the base of the virtual triangle that is constructed when getting pixels.
 
-y_base_distance = (window_y / window_x) * x_base_distance #Uses a (hopefully) clever trick with the aspect ratio of the screen to possibly save some time and maths in order to calculate the same number as above, but for the vertical, "side view", triangle base length.
+try:
+    y_base_distance = (window_y / window_x) * x_base_distance #Uses a (hopefully) clever trick with the aspect ratio of the screen to possibly save some time and maths in order to calculate the same number as above, but for the vertical, "side view", triangle base length.
+except ZeroDivisionError:
+    pass
 
 background_colour = [0.53, 0.603, 0.776] #Due to the way the turtle library works, the background colour is split up into 3 values of red, green, and blue, each ranging from 0 to 1.
 
@@ -35,11 +41,18 @@ def render_frame():
     window_x = screen.window_width()
     window_y = screen.window_height()
 
-    aspect_ratio = (window_x / window_y)
+    try:
+        aspect_ratio = (window_x / window_y)
+    except ZeroDivisionError:
+        pass
 
     x_base_distance = ((math.tan(radians(fov / 2)) * render_distance) * 2) #Calculates the length of the base of the virtual triangle that is constructed when getting pixels.
 
-    y_base_distance = (window_y / window_x) * x_base_distance #Uses a (hopefully) clever trick with the aspect ratio of the screen to possibly save some time and maths in order to calculate the same number as above, but for the vertical, "side view", triangle base length.
+    try:
+        y_base_distance = (window_y / window_x) * x_base_distance #Uses a (hopefully) clever trick with the aspect ratio of the screen to possibly save some time and maths in order to calculate the same number as above, but for the vertical, "side view", triangle base length.
+    except ZeroDivisionError:
+        pass
+
 
     rotated_points = [(0, 0), (0, 0)]
 
