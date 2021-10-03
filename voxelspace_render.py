@@ -59,11 +59,11 @@ def render_frame():
         z_axis.append(0)
 
     for y in range(render_distance): #Runs for every horizontal line between the camera/player and the furthest point away from them which they can see.
-        rotated_points[0][0] = (math.cos(math.radians(camera_rotation)) * (((x_base_distance / render_distance) * (y + 1)) - (((x_base_distance / render_distance) * (y + 1)) / 2))) - (math.sin(math.radians(camera_rotation)) * (y + 1))
-        rotated_points[0][1] = (math.sin(math.radians(camera_rotation)) * (((x_base_distance / render_distance) * (y + 1)) - (((x_base_distance / render_distance) * (y + 1)) / 2))) + (math.cos(math.radians(camera_rotation)) * (y + 1))
+        rotated_points[0][0] = (math.cos(math.radians(camera_rotation)) * (((x_base_distance / render_distance) * (y + 1)) - (((x_base_distance / render_distance) * (y + 1)) / 2))) - (math.sin(math.radians(camera_rotation)) * (y + 1)) #This line records the X co-ordinate of the starting position of the rendering line, after rotating.
+        rotated_points[0][1] = (math.sin(math.radians(camera_rotation)) * (((x_base_distance / render_distance) * (y + 1)) - (((x_base_distance / render_distance) * (y + 1)) / 2))) + (math.cos(math.radians(camera_rotation)) * (y + 1)) #This line records the Y co-ordinate of the starting position of the rendering line, after rotating.
 
-        rotated_points[1][0] = (math.cos(math.radians(camera_rotation)) * (((x_base_distance / render_distance) * (y+1)) / 2)) - (math.sin(math.radians(camera_rotation)) * (y + 1))
-        rotated_points[1][0] = (math.sin(math.radians(camera_rotation)) * (((x_base_distance / render_distance) * (y+1)) / 2)) + (math.cos(math.radians(camera_rotation)) * (y + 1))
+        rotated_points[1][0] = (math.cos(math.radians(camera_rotation)) * (((x_base_distance / render_distance) * (y+1)) / 2)) - (math.sin(math.radians(camera_rotation)) * (y + 1)) #This line records the X co-ordinate of the ending position of the rendering line, after rotating.
+        rotated_points[1][0] = (math.sin(math.radians(camera_rotation)) * (((x_base_distance / render_distance) * (y+1)) / 2)) + (math.cos(math.radians(camera_rotation)) * (y + 1)) #This line records the Y co-ordinate of the ending position of the rendering line, after rotating.
         for x in range((x_base_distance / render_distance) * (y+1)): #Runs for every pixel that should be checked between the edges of each horizontal line.
             #for loop1 in range(math.ceil((x_base_distance / render_distance) * (y+1))): Temporary placeholder code until I can implement proper functions for getting pixels and drawing lines on the screen.
 
