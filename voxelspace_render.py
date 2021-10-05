@@ -17,7 +17,7 @@ z_axis = [] #This will be used to allow for drawing lines from the front of the 
 try:
     aspect_ratio = (window_x / window_y) #The aspect ratio of the screen, calculated by dividing the horizontal resolution by the vertical resolution. This is redundant, and is never used.
 except ZeroDivisionError:
-    pass
+    aspect_ratio = 0
 
 pos = [0, 0, 0] #The player/camera position.
 
@@ -28,7 +28,7 @@ x_base_distance = ((math.tan(math.radians(fov / 2)) * render_distance) * 2) #Cal
 try:
     y_base_distance = (window_y / window_x) * x_base_distance #Uses a (hopefully) clever trick with the aspect ratio of the screen to possibly save some time and maths in order to calculate the same number as above, but for the vertical, "side view", triangle base length.
 except ZeroDivisionError:
-    pass
+    y_base_distance = 0
 
 background_colour = [0.53, 0.603, 0.776] #Due to the way the turtle library works, the background colour is split up into 3 values of red, green, and blue, each ranging from 0 to 1.
 
