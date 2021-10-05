@@ -44,7 +44,8 @@ def render_frame():
     try:
         aspect_ratio = (window_x / window_y)
     except ZeroDivisionError:
-        print("An error has occurred, and a window has not been created. Make sure that you did not close any windows that may have appeared, as that may be the cause of the issue. Otherwise, report this as a bug.")
+        print("An error has occurred, as a window has most likely not been created. Make sure that you did not close any windows that may have appeared, as that may be the cause of the issue. Otherwise, report this as a bug.")
+        print("ERROR: 'window_x' and/or 'window_y' are empty.")
 
     x_base_distance = ((math.tan(radians(fov / 2)) * render_distance) * 2) #Calculates the length of the base of the virtual triangle that is constructed when getting pixels.
 
