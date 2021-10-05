@@ -83,6 +83,7 @@ def render_frame():
 
 # OBJECTIVES
 #
-# - Complete Z-buffer implementation
+# - Complete Z-buffer implementation.
+# - Trial using turtle to display frames to ensure that the turtle is not too slow to be used as the line renderer.
 # - Ensure appropriate behavior based on screen resolution, so line rendering can be ensured to cover the whole screen.
-# - Test the goddamn thing
+# - Test the goddamn thing.
