@@ -2,7 +2,12 @@ import math
 import turtle
 
 render_distance = 100
-fov = 90 #The FOV of the camera. This, because of mathematical constraints involving triangles, can never be 180 or larger. Also, combinding a large FOV with a large render distance may result in unexpected behaviour, or graphical anomalies. This is because the calculated base distance of the horizontal virtual triangle may exceed the window's vertical pixel count, forcing multiple lines into the space of a single one. Therefore, resulting in unpredictable results.
+fov = 90
+#The FOV of the camera. This, because of mathematical constraints involving triangles, can never be 180 or larger.
+#The larger the FOV, the larger the 'x_base_distance' will be with the same render distance.
+#
+#Also, combinding a large FOV with a large render distance may result in unexpected behaviour, or graphical anomalies.
+#This is because the calculated base distance of the horizontal virtual triangle may exceed the window's vertical pixel count, forcing multiple lines into the space of a single one. Therefore, resulting in unpredictable results.
 
 window_x = 0 #window_x and window_y are placeholder variables for what will in future be the window dimensions in pixels.
 window_y = 0
