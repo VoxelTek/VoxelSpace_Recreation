@@ -34,17 +34,24 @@ background_colour = [0.53, 0.603, 0.776] #Due to the way the turtle library work
 
 def window_init():
     screen = turtle.Screen()
-
     screen.bgcolor(background_colour)
 
     linedraw = turtle.Turtle()
-
     linedraw.hideturtle()
+    linedraw.pensize(1)
 
+def draw_vertical_line(height, y_axis):
+    linedraw.penup()
+
+    linedraw.goto(-(window_y / 2), (-(window_x / 2) + y_axis))
+    linedraw.pendown()
+    linedraw.goto((-(window_y / 2) + height), (-(window_x / 2) + y_axis))
 
 def render_frame():
     window_x = screen.window_width()
     window_y = screen.window_height()
+
+    linedraw.clear()
 
     try:
         aspect_ratio = (window_x / window_y)
